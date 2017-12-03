@@ -10,8 +10,8 @@
                 <input type="radio"
                        name="searchType"
                        id="@column.Key"
-                       value="@column.Key" 
-                       checked="@column.Key == 'all''"/>
+                       value="@column.Key"
+                       checked="@column.Key == 'all''" />
                 <label for="@column.Key">@column.Value</label>
             </span>
         }
@@ -32,5 +32,21 @@
 
     <h3>@ViewBag.jobs.Count Result(s)</h3>
 
-    // TODO #2 - Loop over jobs dictionary and display all job fields 
+    // TODO #2 - Loop over jobs dictionary and display all job fields
+    //int count = jobs.Count;
+    //if (count == 0)
+    //{
+        //Console.WriteLine("Sorry no results for that search");
+    //}
+ <ul>
+    @foreach (Dictionary<string, string> item in ViewBag.jobs)
+    {
+        @foreach (KeyValuePair<string, string> kvp in item)
+        {
+            <h2>@kvp.Key : @kvp.Value</h2>
+        }
+        <br />
+    }
+  </ul>
 }
+    

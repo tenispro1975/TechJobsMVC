@@ -4,4 +4,13 @@
 
 @{ 
     // TODO #3 - Use the same list display from Views/Search/Index.cshtml 
-}
+}<ul>
+    @foreach (Dictionary<string, string> item in ViewBag.jobs)
+    {
+        @foreach (KeyValuePair<string, string> kvp in item)
+        {
+            <h2>@kvp.Key : @kvp.Value</h2>
+        }
+        <br />
+    }
+</ul>
